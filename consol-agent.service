@@ -1,0 +1,11 @@
+[Unit]
+Description=Consul Startup Process
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/bin/bash -c 'consul agent -data-dir=/tmp/consul -retry-join "192.168.0.70"'
+TimeoutStartSec=0
+
+[Install]
+WantedBy=default.target
